@@ -1,5 +1,5 @@
 // src/pushNotifications.js
-const serverURL = 'http://127.0.0.1:8000'; //'http://127.0.0.1:8000'
+const serverURL = 'http://localhost:8000'; //'http://127.0.0.1:8000'
 
 async function getVapidPublicKey() {
   const response = await fetch(serverURL+'/vapid-public-key');
@@ -12,7 +12,6 @@ export async function subscribeUserToPush() {
     if ('serviceWorker' in navigator && 'PushManager' in window) {
         try {
             const publicKey = await getVapidPublicKey();
-            console.warn('Public key:', publicKey);
 
             const registration = await navigator.serviceWorker.ready;
 
@@ -29,7 +28,6 @@ export async function subscribeUserToPush() {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
-                'token': '123'
                 },
                 body: JSON.stringify(subscription)
             }).then(response => {

@@ -3,6 +3,14 @@ import React, { useEffect } from 'react';
 import { subscribeUserToPush } from './pushNotifications';
 
 function App() {
+  useEffect(() => {
+    // Žádost o povolení push notifikací
+    Notification.requestPermission().then(permission => {
+      if (permission === 'granted') {
+        subscribeUserToPush();
+      }
+    });
+  }, []);
 
   return (
     <div className="App">
