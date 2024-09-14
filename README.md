@@ -1,6 +1,8 @@
 # React-push-notifications
 React Vite push sample for sending push notifications to clients
 
+A service worker `sw.js` is registered on the background to recive the notifications and the `pushNotifications.js` script handles comunication with the API.
+
 ## Requirements
 
 You have to have installed npm and Python.
