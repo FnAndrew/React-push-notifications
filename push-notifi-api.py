@@ -61,7 +61,7 @@ async def get_vapid_public_key():
     return {"vapidPublicKey": VAPID_PUBLIC_KEY}
 
 @app.post("/notify")
-async def notify(title: str = "Nová notifikace", body: str = "Máme pro vás nové zprávy!", url: str = "/"):
+async def notify(title: str = "New notification", body: str = "New info for you!", url: str = "/"):
     count = 0
     
     message_body = {
